@@ -1,0 +1,22 @@
+let mapleader = " "
+syntax on
+filetype plugin on
+set nocompatible
+set autoread
+set foldmethod=marker
+set autoindent
+set clipboard+=unnamedplus
+set number relativenumber
+colorscheme  desert
+set cursorline
+set shiftwidth=2 softtabstop=2 expandtab
+map cr :w! && !compile %:p:r<CR>
+map cx ggVGy
+vmap < <gv
+vmap > >gv
+autocmd TextChanged,TextChangedI * write
+set undofile
+set undodir=~/.vim/undo
+set undolevels=1000
+set undoreload=10000
+
