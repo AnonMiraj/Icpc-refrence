@@ -13,3 +13,14 @@ void divs() {
         cout << fact << endl;
 }
 
+vector<int> divisors;
+void getDivisors(int n) {
+    for (int i = 1; i*i <= n; ++i) {
+        if (n % i == 0) {
+            divisors.push_back(i);
+            if (i != n / i) {
+                divisors.push_back(n / i);
+            }
+        }
+    }
+}
