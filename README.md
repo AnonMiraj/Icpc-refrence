@@ -2,7 +2,7 @@
 
 Dependencies : 
 ```bash
-sudo pacman -S texlive-core texlive-latexextra texlive-fontsextra texlive-pictures texlive-latexrecommended
+sudo pacman -S texlive-core texlive-latexextra texlive-fontsextra texlive-pictures texlive-fontsrecommended
 ```
 Compilation : 
 ```bash
