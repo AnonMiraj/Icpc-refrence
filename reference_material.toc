@@ -1,0 +1,19 @@
+\contentsline {section}{\numberline {1}Setup}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Vimrc}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Compilation}{1}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Data Structure}{1}{section.2}%
+\contentsline {subsection}{\numberline {2.1}segmented tree}{1}{subsection.2.1}%
+\contentsline {section}{\numberline {3}Graph algorithms}{1}{section.3}%
+\contentsline {section}{\numberline {4}Mathematics}{1}{section.4}%
+\contentsline {subsection}{\numberline {4.1}ncr}{1}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}fastpower}{2}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}simple-sieve}{2}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}calculate all divisors}{2}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}calculate all prime factors}{2}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Geometry}{3}{section.5}%
+\contentsline {section}{\numberline {6}Miscellaneous}{3}{section.6}%
+\contentsline {subsection}{\numberline {6.1}C++ template}{3}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Gcd \& Lcm}{3}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Debugging tools}{3}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Pseudo random number generator}{3}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Stress test}{3}{subsection.6.5}%
