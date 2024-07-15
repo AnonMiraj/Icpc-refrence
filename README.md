@@ -1,4 +1,5 @@
 # ICPC Team Reference Material
+You could view the resulted pdf [here](https://anonmiraj.github.io/Icpc-refrence/reference_material.pdf).
 
 Dependencies : 
 ```bash
