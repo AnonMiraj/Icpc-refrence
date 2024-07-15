@@ -1,9 +1,3 @@
-#include <bits/stdc++.h>
-#include "debug.hpp"
-using namespace std;
-#define vi vector<int>
-#define OO 1e8
-#define pii pair<int, int>
 int n;
 vector<vector<pair<int, int> > > adj;
 void addEdge(int u, int v, int w) {
@@ -12,8 +6,8 @@ void addEdge(int u, int v, int w) {
 }
 vi visited;
 vi dijkstra(int x) {
-  vi distance(adj.size(), OO);
-  priority_queue<pii, vector<pii>, greater<> > q;
+  vi distance(adj.size(), INT_MAX);
+  priority_queue<pair<int, int>, vector<pair<int, int>>, greater<> > q;
   q.emplace(0, x);
   distance[x] = 0;
   q.emplace(0, x);
@@ -35,19 +29,5 @@ vi dijkstra(int x) {
   return distance;
 }
 void printSolution(vi dist) {
-  cout << "Vertex \t Distance from Source" << endl;
   for (int i = 0; i < n; i++) cout << i << " \t\t-->\t\t" << dist[i] << endl;
-}
-int main() {
-  n = 14;
-  adj.resize(n);
-  visited.resize(n);
-
-  addEdge(0, 1, 4);
-  addEdge(0, 7, 8);
-  addEdge(1, 2, 8);
-  addEdge(1, 7, 11);
-  addEdge(2, 3, 7);
-  printSolution(dijkstra(0));
-  return 0;
 }
