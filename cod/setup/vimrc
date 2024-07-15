@@ -1,3 +1,4 @@
+# init.vim
 let mapleader = " "
 syntax on
 filetype plugin on
@@ -10,13 +11,9 @@ set number relativenumber
 colorscheme  desert
 set cursorline
 set shiftwidth=2 softtabstop=2 expandtab
-map cr :w! && !compile %:p:r<CR>
-map cx ggVGy
-vmap < <gv
-vmap > >gv
-autocmd TextChanged,TextChangedI * write
+map <leader>r :w! && !compile "%:p:r"<CR>
+map <leader>x <cmd> %y+ <CR>
 set undofile
 set undodir=~/.vim/undo
 set undolevels=1000
 set undoreload=10000
-
