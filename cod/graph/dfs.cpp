@@ -1,7 +1,6 @@
 vector<vector<int>> graph;
 vector<bool> visited;
 
-// manual
 void dfs(int start) {
     stack<int> stack;
     stack.push(start);
@@ -23,7 +22,6 @@ void dfs(int start) {
     }
 }
 
-// with recursion
 void dfs(int node) {
     visited[node] = true;
     cout << node << ' ';
