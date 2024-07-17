@@ -22,6 +22,11 @@ void dfs(int start) {
     }
 }
 
+int n; // number of vertices
+vector<vector<int>> adj; // adjacency list of graph
+vector<bool> visited;
+vector<int> ans;
+
 void dfs(int node) {
     visited[node] = true;
     cout << node << ' ';
@@ -31,5 +36,17 @@ void dfs(int node) {
             dfs(neighbor);
         }
     }
+
+    // ans.push_back(node);
 }
 
+void topological_sort() {
+    visited.assign(n, false);
+    ans.clear();
+    for (int i = 0; i < n; ++i) {
+        if (!visited[i]) {
+            dfs(i);
+        }
+    }
+    reverse(ans.begin(), ans.end());
+}
