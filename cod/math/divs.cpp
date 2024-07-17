@@ -7,9 +7,16 @@ void divs() {
             divs[j].push_back(i);
         }
     }
-
-    // all divisors of 12  
-    for (auto fact : divs[12])
-        cout << fact << endl;
 }
 
+void div(int n) {
+    vector<int> divisors;
+    for (int i = 1; i*i <= n; ++i) {
+        if (n % i == 0) {
+            divisors.push_back(i);
+            if (i != n / i) {
+                divisors.push_back(n / i);
+            }
+        }
+    }
+}
