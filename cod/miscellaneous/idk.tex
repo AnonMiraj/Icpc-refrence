@@ -45,6 +45,7 @@ Binomial coefficients have many different properties.
 \end{itemize}
 
 
+
 \textbf{Arithmetic Progression}
 
 \textbf{Sequence:}
@@ -97,3 +98,55 @@ Binomial coefficients have many different properties.
 \textbf{Sum of First n Terms:}
 \[ S_n = \sum_{k=1}^{n} \frac{1}{a + (k-1)d} = n \left(\frac{1}{a} + \frac{1}{a+d} + \cdots + \frac{1}{a+(n-1)d}\right) \]
 
+\vspace{0.5cm}
+
+\textbf{Power Series}
+
+\[
+\begin{array}{>{\displaystyle}c>{\displaystyle}c}
+    \sum_{i=1}^{n} i = \frac{n(n+1)}{2}, &
+    \sum_{i=1}^{n} i^2 = \frac{n(n+1)(2n+1)}{6}, \\
+    \sum_{i=1}^{n} i^3 = \left(\frac{n(n+1)}{2}\right)^2. &
+\end{array}
+\]
+
+\[
+\begin{array}{>{\displaystyle}c}
+    \text{In general:} \\
+    \sum_{i=1}^{n} i^m = \frac{1}{m+1} \left[ (n+1)^{m+1} - 1 - \sum_{i=1}^{n} \left( (i+1)^{m+1} - i^{m+1} - (m+1)i^m \right) \right] \\
+    \sum_{i=1}^{n-1} i^m = \frac{1}{m+1} \sum_{k=0}^{m} \binom{m+1}{k} B_k n^{m+1-k}. \\
+\end{array}
+\]
+
+\textbf{Geometric Series}
+
+\[
+\begin{array}{>{\displaystyle}c>{\displaystyle}c}
+    \sum_{i=0}^{n} c^i = \frac{c^{n+1}-1}{c-1}, & c \neq 1, \\
+    \sum_{i=0}^{\infty} c^i = \frac{1}{1-c}, & |c| < 1, \\
+    \sum_{i=1}^{\infty} c^i = \frac{c}{1-c}, & |c| < 1. \\
+\end{array}
+\]
+
+\[
+\begin{array}{>{\displaystyle}c>{\displaystyle}c}
+    \sum_{i=0}^{n} i c^i = \frac{nc^{n+2}-(n+1)c^{n+1}+c}{(c-1)^2}, & c \neq 1, \\
+    \sum_{i=0}^{\infty} i c^i = \frac{c}{(1-c)^2}, & |c| < 1. \\
+\end{array}
+\]
+
+\textbf{Harmonic Series}
+
+\[
+\begin{array}{>{\displaystyle}c}
+    H_n = \sum_{i=1}^{n} \frac{1}{i}, \\
+    \sum_{i=1}^{n} iH_i = \frac{n(n+1)}{2} H_n - \frac{n(n-1)}{4}. \\
+\end{array}
+\]
+
+\[
+\begin{array}{>{\displaystyle}c}
+    \sum_{i=1}^{n} H_i = (n+1) H_n - n, \\
+    \sum_{i=1}^{n} \binom{i}{m} H_i = \binom{n+1}{m+1} \left( H_{n+1} - \frac{1}{m+1} \right).
+\end{array}
+\]
