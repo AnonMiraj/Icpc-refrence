@@ -1,0 +1,6 @@
+setxkbmap -layout us
+xmodmap -e 'clear Lock'
+xmodmap -e 'keycode 66 = Escape'
+
+! copy template 
+printf "%s\n" {b..q} | xargs -I {} cp a.cpp {}.cpp
