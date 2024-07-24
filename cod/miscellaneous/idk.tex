@@ -1,4 +1,4 @@
-\fontsize{5.5}{6}\ttfamily
+\fontsize{12.5}{6}\ttfamily
 \begin{itemize}[label=•]
     \item \texttt{\#pragma GCC optimize ("Ofast")} will make GCC auto-vectorize for loops and optimizes floating points better (assumes associativity and turns off denormals).
     \item \texttt{\#pragma GCC target ("avx,avx2")} can double performance of vectorized code, but causes crashes on old machines. Also consider older \texttt{\#pragma GCC target ("sse4")}.
