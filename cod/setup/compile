@@ -4,3 +4,15 @@ compile() {
   g++ -Wall -Wextra -Wshadow -Ofast -std=c++17 -pedantic -Wformat=2 -Wconversion -Wlogical-op -Wshift-overflow=2 -Wduplicated-cond -Wfloat-equal -fno-sanitize-recover -fstack-protector -fsanitize=address,undefined -fmax-errors=2 -o "$1"{,.cpp}
 }
 compile "$1"
+
+# Compile 2.0
+
+#!/bin/bash
+while true; do
+    clear
+    g++ a.cpp
+    ./a.out < input_a
+
+    sleep 3s
+    vim a.cpp
+done
