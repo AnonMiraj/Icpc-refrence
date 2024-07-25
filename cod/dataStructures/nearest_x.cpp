@@ -12,14 +12,3 @@ if (it == s.begin()) {
     if (x-b < a-x) cout << b << "\n";
     else cout << a << "\n";
 }
-
-/*
-  <----- lower_bound and upper_bound ------>
-lower_bound(x) : returns an iterator to the smallest element in the set whose value is at least x
-
-upper_bound(x) : returns an iterator to the smallest element in the set whose value is larger than x
-
-In both functions, if such an element does not exist, the return value is end. 
-
-These functions are not supported by the unordered_set structure which does not maintain the order of the elements.
-*/
