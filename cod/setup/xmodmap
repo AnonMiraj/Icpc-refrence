@@ -4,3 +4,7 @@ xmodmap -e 'keycode 66 = Escape'
 
 ! copy template 
 printf "%s\n" {b..q} | xargs -I {} cp a.cpp {}.cpp
+
+! Add custom scripts to PATH put in bashprofile
+PATH="$PATH:/home/nero"
+export PATH

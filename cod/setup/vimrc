@@ -2,18 +2,18 @@
 let mapleader = " "
 syntax on
 filetype plugin on
+colorscheme  desert
 set nocompatible
 set autoread
 set foldmethod=marker
 set autoindent
 set clipboard+=unnamedplus
 set number relativenumber
-colorscheme  desert
 set cursorline
 set shiftwidth=2 softtabstop=2 expandtab
-map <leader>r :w! && !compile "%:p:r"<CR>
-map <leader>x <cmd> %y+ <CR>
 set undofile
 set undodir=~/.vim/undo
 set undolevels=1000
 set undoreload=10000
+map <leader>r :w! <CR> :!./compile "%:p:r"<CR>:!"%:p:r"<CR>
+map <leader>x <cmd> %y+ <CR>
