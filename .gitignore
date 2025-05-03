@@ -1,6 +1,8 @@
-*.pdf
+kactl.pdf
+test-session.pdf
 *.log
 *.out
 *.aux
 *.toc
 *.swp
+build

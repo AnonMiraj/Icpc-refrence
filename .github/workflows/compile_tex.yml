@@ -1,11 +1,11 @@
 name: Build LaTeX document
+
 on:
   push:
     branches:
       - main
 
-
-permissions: 
+permissions:
   contents: write
 
 jobs:
@@ -14,20 +14,21 @@ jobs:
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v4
-        with:
-          repository: ${{ github.repository }}
-          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: reference_material.tex
-
-      - name: Check pdf files
+      - name: Install LaTeX
         run: |
-          file reference_material.pdf | grep -q ' PDF '
+          sudo apt-get update
+          sudo apt-get install -y texlive-full make
+
+      - name: Build PDF with Makefile
+        run: make kactl
+
+      - name: Check PDF file
+        run: |
+          file kactl.pdf | grep -q ' PDF '
           mkdir public
-          cp reference_material.pdf public/
+          cp kactl.pdf public/
+          cp test-session.pdf public/
 
       - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v4
@@ -36,3 +37,4 @@ jobs:
           build_dir: public
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
