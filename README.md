@@ -7,7 +7,7 @@ sudo pacman -S texlive-core texlive-latexextra texlive-fontsextra texlive-pictur
 ```
 Compilation : 
 ```bash
-make kacktel
+make kactl
 ```
 # Acknowledgment
 

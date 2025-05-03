@@ -18,7 +18,16 @@ jobs:
       - name: Install LaTeX
         run: |
           sudo apt-get update
-          sudo apt-get install -y texlive-full make
+          sudo apt-get install -y \
+            texlive-latex-base \
+            texlive-latex-recommended \
+            texlive-fonts-recommended \
+            texlive-latex-extra \
+            texlive-fonts-extra \
+            texlive-science \
+            texlive-pictures \
+            make
+
 
       - name: Build PDF with Makefile
         run: make kactl
