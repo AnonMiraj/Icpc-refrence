@@ -1,16 +1,11 @@
 #include <bits/stdc++.h>
-
-#define endl '\n'
-#define int long long
-#define ld  long double
-#define all(a) (a).begin(), (a).end()
-#define sz(a) (int)(a).size()
-#define pb push_back
-#define F first
-#define S second
-#define vi vector<int>
-
 using namespace std;
+
+#define int    long long
+#define vi     vector<int>
+#define pii    pair<int, int>
+#define all(v) v.begin(), v.end()
+
 
 void file() {
   freopen("input.in", "r", stdin);
@@ -18,16 +13,15 @@ void file() {
 }
 
 void Solve() {
+
 }
 
-int32_t main() { 
-  ios_base::sync_with_stdio(false);
+int32_t main() {
+  ios_base::sync_with_stdio(false); 
   cin.tie(nullptr);
   // file();
-  
-  int t = 1; 
+  int t = 1;
   // cin >> t;
-  for(int i = 1; i <= t; ++i) {
-    Solve();
-  }
+  while (t--) Solve();
+  return 0;
 }
