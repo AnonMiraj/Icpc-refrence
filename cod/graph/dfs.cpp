@@ -1,52 +1,16 @@
-vector<vector<int>> graph;
-vector<bool> visited;
+int n; 
+vector<vi> adj; 
+vi vis(n + 1), ans;
 
-void dfs(int start) {
-    stack<int> stack;
-    stack.push(start);
+void dfs(int u) {
+    vis[u] = true;
+    cout << u << ' ';
 
-    while (!stack.empty()) {
-        int node = stack.top();
-        stack.pop();
-
-        if (!visited[node]) {
-            cout << char(node + 'A') << ' ';
-            visited[node] = true;
-        }
-
-        for (auto it = graph[node].rbegin(); it != graph[node].rend(); ++it) {
-            if (!visited[*it]) {
-                stack.push(*it);
-            }
-        }
-    }
-}
-
-int n; // number of vertices
-vector<vector<int>> adj; // adjacency list of graph
-vector<bool> visited;
-vector<int> ans;
-
-void dfs(int node) {
-    visited[node] = true;
-    cout << node << ' ';
-
-    for (int neighbor : graph[node]) {
-        if (!visited[neighbor]) {
-            dfs(neighbor);
+    for (int v : graph[u]) {
+        if (!vis[v]) {
+            dfs(v);
         }
     }
 
-    // ans.push_back(node);
-}
-
-void topological_sort() {
-    visited.assign(n, false);
-    ans.clear();
-    for (int i = 0; i < n; ++i) {
-        if (!visited[i]) {
-            dfs(i);
-        }
-    }
-    reverse(ans.begin(), ans.end());
+    ans.push_back(u);
 }
