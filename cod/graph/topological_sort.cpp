@@ -1,5 +1,5 @@
 // A topological sort takes a directed acyclic graph (DAG) and produces
-// a linear ordering of its vertices such that for every directed edge u → v, u comes before v in that order.
+// a linear ordering of its vertices such that for every directed edge u -> v, u comes before v in that order.
 // Returns a vector of nodes in a valid order; if a cycle exists, the size will be < n.
 // Useful for: Scheduling with Dependencies, Course Prerequisites
 

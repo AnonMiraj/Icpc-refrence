@@ -1,5 +1,4 @@
-// Searching for a cycle 
-// Color: 0 = unvisited, 1 = in‐stack, 2 = done
+// Color: 0 = unvisited, 1 = in-stack, 2 = done
 vi color(n + 1, 0), parents(n + 1, -1), cycle;
 bool found = false;
 
@@ -11,7 +10,7 @@ function<bool(int)> dfs = [&](int u) -> bool {
             if (dfs(v)) return true;
         }
         else if (color[v] == 1) {
-            // back‐edge u→v = found a cycle
+            // back edge u -> v found a cycle
             found = true;
             cycle.push_back(v);
             for (int x = u; x != v; x = parents[x])
