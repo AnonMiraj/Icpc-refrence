@@ -3,25 +3,25 @@
 vi color(n + 1, 0), parents(n + 1, -1), cycle;
 bool found = false;
 
-function<bool(int)> dfs = [&](int parent) -> bool {
-    color[parent] = 1;
-    for (int child : adj[parent]) {
-        if (color[child] == 0) {
-            parents[child] = parent;
-            if (dfs(child)) return true;
+function<bool(int)> dfs = [&](int u) -> bool {
+    color[u] = 1;
+    for (int v : adj[u]) {
+        if (color[v] == 0) {
+            parents[v] = u;
+            if (dfs(v)) return true;
         }
-        else if (color[child] == 1) {
-            // back‐edge u→v ⇒ found a cycle
+        else if (color[v] == 1) {
+            // back‐edge u→v = found a cycle
             found = true;
-            cycle.push_back(child);
-            for (int x = parent; x != child; x = parents[x])
+            cycle.push_back(v);
+            for (int x = u; x != v; x = parents[x])
                 cycle.push_back(x);
-            cycle.push_back(child);
+            cycle.push_back(v);
             reverse(all(cycle));
             return true;
         }
     }
-    color[parent] = 2;
+    color[u] = 2;
     return false;
 };
 
