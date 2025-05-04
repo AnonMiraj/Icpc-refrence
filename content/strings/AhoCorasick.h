@@ -62,7 +62,7 @@ struct AhoCorasick {
 	}
 	vi find(string word) {
 		int n = 0;
-		vi res; // ll count = 0;
+		vi res; // int count = 0;
 		for (char c : word) {
 			n = N[n].next[c - first];
 			res.push_back(N[n].end);

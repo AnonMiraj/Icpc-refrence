@@ -23,12 +23,12 @@ struct FT2 {
 	}
 	int ind(int x, int y) {
 		return (int)(lower_bound(all(ys[x]), y) - ys[x].begin()); }
-	void update(int x, int y, ll dif) {
+	void update(int x, int y, int dif) {
 		for (; x < sz(ys); x |= x + 1)
 			ft[x].update(ind(x, y), dif);
 	}
-	ll query(int x, int y) {
-		ll sum = 0;
+	int query(int x, int y) {
+		int sum = 0;
 		for (; x; x &= x - 1)
 			sum += ft[x-1].query(ind(x-1, y));
 		return sum;

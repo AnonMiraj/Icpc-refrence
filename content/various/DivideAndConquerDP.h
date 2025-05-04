@@ -12,13 +12,13 @@
 struct DP { // Modify at will:
 	int lo(int ind) { return 0; }
 	int hi(int ind) { return ind; }
-	ll f(int ind, int k) { return dp[ind][k]; }
-	void store(int ind, int k, ll v) { res[ind] = pii(k, v); }
+	int f(int ind, int k) { return dp[ind][k]; }
+	void store(int ind, int k, int v) { res[ind] = pii(k, v); }
 
 	void rec(int L, int R, int LO, int HI) {
 		if (L >= R) return;
 		int mid = (L + R) >> 1;
-		pair<ll, int> best(LLONG_MAX, LO);
+		pair<int, int> best(LLONG_MAX, LO);
 		rep(k, max(LO,lo(mid)), min(HI,hi(mid)))
 			best = min(best, make_pair(f(mid, k), k));
 		store(mid, best.second, best.first);

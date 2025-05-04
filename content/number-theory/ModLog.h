@@ -32,9 +32,9 @@
  */
 #pragma once
 
-ll modLog(ll a, ll b, ll m) {
-	ll n = (ll) sqrt(m) + 1, e = 1, f = 1, j = 1;
-	unordered_map<ll, ll> A;
+int modLog(int a, int b, int m) {
+	int n = (int) sqrt(m) + 1, e = 1, f = 1, j = 1;
+	unordered_map<int, int> A;
 	while (j <= n && (e = f = e * a % m) != b % m)
 		A[e * b % m] = j++;
 	if (e == b % m) return j;

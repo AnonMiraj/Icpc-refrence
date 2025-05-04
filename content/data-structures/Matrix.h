@@ -26,7 +26,7 @@ template<class T, int N> struct Matrix {
 		rep(i,0,N) rep(j,0,N) ret[i] += d[i][j] * vec[j];
 		return ret;
 	}
-	M operator^(ll p) const {
+	M operator^(int p) const {
 		assert(p >= 0);
 		M a, b(*this);
 		rep(i,0,N) a.d[i][i] = 1;

@@ -5,7 +5,7 @@ using namespace std;
 #define all(x) begin(x), end(x)
 #define sz(x) (int)(x).size()
 #define int long long
-typedef long long ll;
+#define uint unsigned long long
 typedef pair<int, int> pii;
 typedef vector<int> vi;
 

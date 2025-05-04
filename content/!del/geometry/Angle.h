@@ -29,8 +29,8 @@ struct Angle {
 };
 bool operator<(Angle a, Angle b) {
 	// add a.dist2() and b.dist2() to also compare distances
-	return make_tuple(a.t, a.half(), a.y * (ll)b.x) <
-	       make_tuple(b.t, b.half(), a.x * (ll)b.y);
+	return make_tuple(a.t, a.half(), a.y * (int)b.x) <
+	       make_tuple(b.t, b.half(), a.x * (int)b.y);
 }
 
 // Given two points, this calculates the smallest angle between

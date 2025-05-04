@@ -15,7 +15,7 @@
 
 #include "FastFourierTransform.h"
 
-typedef vector<ll> vl;
+typedef vector<int> vl;
 template<int M> vl convMod(const vl &a, const vl &b) {
 	if (a.empty() || b.empty()) return {};
 	vl res(sz(a) + sz(b) - 1);
@@ -31,8 +31,8 @@ template<int M> vl convMod(const vl &a, const vl &b) {
 	}
 	fft(outl), fft(outs);
 	rep(i,0,sz(res)) {
-		ll av = ll(real(outl[i])+.5), cv = ll(imag(outs[i])+.5);
-		ll bv = ll(imag(outl[i])+.5) + ll(real(outs[i])+.5);
+		int av = (int)(real(outl[i])+.5), cv = (int)(imag(outs[i])+.5);
+		int bv = (int)(imag(outl[i])+.5) + (int)(real(outs[i])+.5);
 		res[i] = ((av % M * cut + bv) % M * cut + cv) % M;
 	}
 	return res;

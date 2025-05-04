@@ -14,10 +14,10 @@
  */
 #pragma once
 
-const ll mod = 5; /** exclude-line */
+const int mod = 5; /** exclude-line */
 
-typedef vector<ll> Poly;
-ll linearRec(Poly S, Poly tr, ll k) {
+typedef vector<int> Poly;
+int linearRec(Poly S, Poly tr, int k) {
 	int n = sz(tr);
 
 	auto combine = [&](Poly a, Poly b) {
@@ -38,7 +38,7 @@ ll linearRec(Poly S, Poly tr, ll k) {
 		e = combine(e, e);
 	}
 
-	ll res = 0;
+	int res = 0;
 	rep(i,0,n) res = (res + pol[i + 1] * S[i]) % mod;
 	return res;
 }

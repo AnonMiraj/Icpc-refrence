@@ -7,8 +7,8 @@
 \begin{minipage}{75mm}
 If a unique intersection point of the lines going through s1,e1 and s2,e2 exists \{1, point\} is returned.
 If no intersection point exists \{0, (0,0)\} is returned and if infinitely many exists \{-1, (0,0)\} is returned.
-The wrong position will be returned if P is Point<ll> and the intersection point does not have integer coordinates.
-Products of three coordinates are used in intermediate steps so watch out for overflow if using int or ll.
+The wrong position will be returned if P is Point<int> and the intersection point does not have integer coordinates.
+Products of three coordinates are used in intermediate steps so watch out for overflow if using int or int.
 \end{minipage}
 \begin{minipage}{15mm}
 \includegraphics[width=\textwidth]{content/geometry/lineIntersection}

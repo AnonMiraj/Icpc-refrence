@@ -14,27 +14,27 @@
 struct PushRelabel {
 	struct Edge {
 		int dest, back;
-		ll f, c;
+		int f, c;
 	};
 	vector<vector<Edge>> g;
-	vector<ll> ec;
+	vector<int> ec;
 	vector<Edge*> cur;
 	vector<vi> hs; vi H;
 	PushRelabel(int n) : g(n), ec(n), cur(n), hs(2*n), H(n) {}
 
-	void addEdge(int s, int t, ll cap, ll rcap=0) {
+	void addEdge(int s, int t, int cap, int rcap=0) {
 		if (s == t) return;
 		g[s].push_back({t, sz(g[t]), 0, cap});
 		g[t].push_back({s, sz(g[s])-1, 0, rcap});
 	}
 
-	void addFlow(Edge& e, ll f) {
+	void addFlow(Edge& e, int f) {
 		Edge &back = g[e.dest][e.back];
 		if (!ec[e.dest] && f) hs[H[e.dest]].push_back(e.dest);
 		e.f += f; e.c -= f; ec[e.dest] += f;
 		back.f -= f; back.c += f; ec[back.dest] -= f;
 	}
-	ll calc(int s, int t) {
+	int calc(int s, int t) {
 		int v = sz(g); H[s] = v; ec[t] = 1;
 		vi co(2*v); co[0] = v-1;
 		rep(i,0,v) cur[i] = g[i].data();
