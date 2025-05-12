@@ -36,8 +36,7 @@ val operator+(const val &a, const val &b) {
 }
 
 val getval(int x) {
-  // make sure x is always positvie if not     
-  // tmp[i] = ((x % M[i]) + M[i]) % M[i];
+  // make sure x is always positvie if not handle it
   for (int i = 0; i < H; i++)
     tmp[i] = x % M[i];
   return tmp;
@@ -57,7 +56,7 @@ void setB(int n) {
 struct Hash {
   vector<val> h;
 
-  Hash(const string &s) : Hash(vector<int>(s.begin(), s.end())) {}
+  Hash(const string &s) : Hash(vector<int>(all(s))) {}
 
   Hash(const vector<int> &s) {
     vector<val> v;
@@ -71,6 +70,13 @@ struct Hash {
     for (int i = 0; i < (int)s.size(); i++)
       h[i + 1] = h[i] * B[1] + s[i];
   }
-
   val get(int l, int r) { return h[r + 1] - h[l] * B[r - l + 1]; }
 };
+
+// val concat(val &a, val &b, int len_b) { return a * B[len_b] + b; }
+//
+// struct val_hash {
+//   size_t operator()(const val &v) const {
+//       return hash<int>{}(v[0]) ^ (hash<int>{}(v[1]) << 1);
+//   }
+// };
