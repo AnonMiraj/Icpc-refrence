@@ -9,20 +9,22 @@ using namespace std;
 typedef pair<int, int> pii;
 typedef vector<int> vi;
 
-mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
+mt19937 rng = mt19937(random_device()());
 
 int rand_int(int a, int b) {
     return uniform_int_distribution<int>(a, b)(rng);
 }
 
-void solve() {}
+void solve() {
+
+}
 
 int32_t main() {
   cin.tie(0)->sync_with_stdio(0);
   cin.exceptions(cin.failbit);
 
   int t = 1;
-  // cin >> t;
+  cin >> t;
   while (t--) {
     solve();
   }
