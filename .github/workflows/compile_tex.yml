@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -28,7 +31,6 @@ jobs:
             texlive-pictures \
             make
 
-
       - name: Build PDF with Makefile
         run: make kactl
 
@@ -39,7 +41,16 @@ jobs:
           cp kactl.pdf public/
           cp test-session.pdf public/
 
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: compiled-pdfs
+          path: |
+            public/kactl.pdf
+            public/test-session.pdf
+
       - name: Deploy to GitHub Pages
+        if: github.event_name == 'push'
         uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: gh-pages

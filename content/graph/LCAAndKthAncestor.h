@@ -1,10 +1,9 @@
 /**
  * Author: Ramez Medhat
- * Description: Data structure for computing lowest common ancestors in a tree
- * C should be an adjacency list of the tree, either directed
- * or undirected.
+ * Description: Data structure for computing lowest common ancestors in a tree C should be an adjacency list of the tree, either directed or undirected.
  * Time: $O(N \log N + Q)$
  */
+
 #pragma once
 struct Tree {
     int n, LOG;
