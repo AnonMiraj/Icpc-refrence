@@ -1,36 +1,30 @@
 /**
- * Author: Simon Lindholm
- * Date: 2017-05-11
- * License: CC0
- * Source: folklore
- * Description: Computes sums a[i,j] for all i<I, j<J, and increases single elements a[i,j].
- *  Requires that the elements to be updated are known in advance (call fakeUpdate() before init()).
- * Time: $O(\log^2 N)$. (Use persistent segment trees for $O(\log N)$.)
- * Status: stress-tested
+ * Author: Ramez Medhat
+ * Description: Computes sums a[i,j] for all i<N, j<M, and increases single elements a[i,j].
+ * Time: $O(\log N \cdot \log M)$. 
  */
 #pragma once
+struct Fenwick2D {
+    int n, m;
+    vector<vi> f;
 
-#include "FenwickTree.h"
+    Fenwick2D(int _n, int _m) : n(_n), m(_m), f(n + 1, vi(m + 1, 0)) {}
 
-struct FT2 {
-	vector<vi> ys; vector<FT> ft;
-	FT2(int limx) : ys(limx) {}
-	void fakeUpdate(int x, int y) {
-		for (; x < sz(ys); x |= x + 1) ys[x].push_back(y);
-	}
-	void init() {
-		for (vi& v : ys) sort(all(v)), ft.emplace_back(sz(v));
-	}
-	int ind(int x, int y) {
-		return (int)(lower_bound(all(ys[x]), y) - ys[x].begin()); }
-	void update(int x, int y, int dif) {
-		for (; x < sz(ys); x |= x + 1)
-			ft[x].update(ind(x, y), dif);
-	}
-	int query(int x, int y) {
-		int sum = 0;
-		for (; x; x &= x - 1)
-			sum += ft[x-1].query(ind(x-1, y));
-		return sum;
-	}
+    void update(int x, int y, int val) {
+        for (int i = x; i <= n; i += i & -i) 
+            for (int j = y; j <= m; j += j & -j) 
+                f[i][j] += val;
+    }
+
+    int prefixSum(int x, int y) const {
+        int res = 0;
+        for (int i = x; i > 0; i -= i & -i) 
+            for (int j = y; j > 0; j -= j & -j) 
+                res += f[i][j];
+        return res;
+    }
+
+    int rangeSum(int x1, int y1, int x2, int y2) const {
+        return prefixSum(x2, y2) - prefixSum(x1 - 1, y2) - prefixSum(x2, y1 - 1) + prefixSum(x1 - 1, y1 - 1);
+    }
 };

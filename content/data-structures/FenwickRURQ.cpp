@@ -3,37 +3,35 @@
  * Description: Range Update, Range Query
  * Time: O(logN)
  */
-template<typename T>
 struct FenwickRURQ {
     int n;
-    vector<T> B1, B2;
-    static constexpr T unit = 0;
-    T f(T& a, T& b) { return a + b; }
-    FenwickRURQ(int size) : n(size), B1(size + 1, unit), B2(size + 1, unit) {}
+    vi B1, B2;
+    FenwickRURQ(int size) : n(size), B1(n+1, 0), B2(n+1, 0) {}
 
-private:
-    void add(vector<T>& B, int i, T v) {
-        for (; i <= n; i += i & -i) B[i] = f(B[i], v);
+    void add(vi& f, int idx, int val) {
+        for (; idx <= n; idx += idx & -idx) f[idx] += val;
     }
 
-    T prefix(int x) {
-        T sum1 = unit, sum2 = unit;
-        for (int i = x; i > 0; i -= i & -i) {
-            sum1 = f(sum1, B1[i]);
-            sum2 = f(sum2, B2[i]);
-        }
-        return sum1 * x - sum2;
+    int prefix(vi& f, int idx){
+        int res = 0;
+        for (; idx > 0; idx -= idx & -idx) res += f[idx];
+        return res;
     }
 
-public:
-    void rangeAdd(int l, int r, T v) {
-        add(B1, l, v);
-        add(B1, r + 1, -v);
-        add(B2, l, v * (l - 1));
-        add(B2, r + 1, -v * r);
+    void rangeUpdate(int l, int r, int val) {
+        add(B1, l, val);
+        add(B1, r + 1, -val);
+        add(B2, l, val * (l - 1));
+        add(B2, r + 1, -val * r);
     }
 
-    T rangeSum(int l, int r) {
-        return prefix(r) - prefix(l - 1);
+    int prefixQuery(int idx){
+        int sumB1 = prefix(B1, idx);
+        int sumB2 = prefix(B2, idx);
+        return sumB1 * idx - sumB2;
+    }
+
+    int rangeQuery(int l, int r){
+        return prefixQuery(r) - prefixQuery(l - 1);
     }
 };
