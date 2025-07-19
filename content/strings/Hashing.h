@@ -17,6 +17,12 @@ const val M = {
 
 val tmp;
 
+val operator+(const val &a, const val &b) {
+  for (int i = 0; i < H; i++)
+    tmp[i] = (a[i] + b[i]) % M[i];
+  return tmp;
+}
+
 val operator*(const val &a, const val &b) {
   for (int i = 0; i < H; i++)
     tmp[i] = a[i] * b[i] % M[i];
@@ -29,11 +35,6 @@ val operator-(const val &a, const val &b) {
   return tmp;
 }
 
-val operator+(const val &a, const val &b) {
-  for (int i = 0; i < H; i++)
-    tmp[i] = (a[i] + b[i]) % M[i];
-  return tmp;
-}
 
 val getval(int x) {
   // make sure x is always positvie if not handle it
