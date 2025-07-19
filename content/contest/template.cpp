@@ -22,6 +22,8 @@ signed main() {
 #define sz(x) (int)(x).size()
 #define uint unsigned long long
 typedef pair<int, int> pii;
+
+priority_queue<int, vector<int>, greater<int>> pq;
 freopen("file.in", "r", stdin);
 
 mt19937 rng = mt19937(random_device()());

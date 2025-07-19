@@ -53,3 +53,24 @@ vl conv(const vl &a, const vl &b) {
 	ntt(out);
 	return {out.begin(), out.begin() + s};
 }
+
+// int generator () {
+//     vector<int> fact;
+//     int phi = mod-1,  n = phi;
+//     for (int i=2; i*i<=n; ++i)
+//         if (n % i == 0) {
+//             fact.push_back (i);
+//             while (n % i == 0)
+//                 n /= i;
+//         }
+//     if (n > 1)
+//         fact.push_back (n);
+//
+//     for (int res=2; res<=mod; ++res) {
+//         bool ok = true;
+//         for (size_t i=0; i<fact.size() && ok; ++i)
+//             ok &= modpow (res, phi / fact[i]) != 1;
+//         if (ok)  return res;
+//     }
+//     return -1;
+// }
