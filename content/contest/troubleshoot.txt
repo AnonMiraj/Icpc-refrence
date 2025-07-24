@@ -15,6 +15,7 @@ Make sure to submit the right file
 Wrong answer:
 Print your solution! Print debug output as well.
 Read the full problem statement again
+Make sure your input is correct / same as problem.
 Have you understood the problem correctly?
 Are you sure your algorithm works?
 Try writing a slow (but correct) solution

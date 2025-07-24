@@ -1,8 +1,8 @@
 /**
  * Author: Noam527
- * Date: 2019-04-24
+ * Date: 2025-04-24
  * License: CC0
- * Source: folklore
+ * Source: ezz
  * Description:
  * Status: tested
  */
@@ -10,9 +10,12 @@
 
 const int mod = 1000000007; // faster if const
 
-int modpow(int b, int e) {
-	int ans = 1;
-	for (; e; b = b * b % mod, e /= 2)
-		if (e & 1) ans = ans * b % mod;
-	return ans;
+int modpow(int a, int b) {
+    int res = 1;
+    while (b) {
+        if (b & 1) res = res * a % mod;
+        a = a * a % mod;
+        b >>= 1;
+    }
+    return res;
 }
