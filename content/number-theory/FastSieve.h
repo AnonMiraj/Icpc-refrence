@@ -37,3 +37,4 @@ vi eratosthenes() {
 	for (int i : pr) isPrime[i] = 1;
 	return pr;
 }
+

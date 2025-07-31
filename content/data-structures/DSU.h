@@ -1,8 +1,5 @@
 /**
- * Author: Lukas Polacek
- * Date: 2009-10-26
- * License: CC0
- * Source: folklore
+ * Author: Ramez
  * Description: Disjoint-set data structure.
  * Time: $O(\alpha(N))$
  */
