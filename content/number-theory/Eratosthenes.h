@@ -18,7 +18,7 @@ vi sieve(int lim) {
 		for (int j = i*i; j < lim; j += i*2) isprime[j] = 0;
 	vi pr;
 
-	for (int i = 2; i < lim; i++) 
+        for (int i = 2; i < lim; i++) 
          if (isprime[i]) pr.push_back(i);
 
 	return pr;
