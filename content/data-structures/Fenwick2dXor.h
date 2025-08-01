@@ -4,54 +4,49 @@
  * Time: $O(\log N \cdot \log M)$. 
  */
 #pragma once
-struct Fenwick2DAdd {
+
+struct Fenwick2DXOR {
     int n, m;
-    vector<vi> T1, T2, T3, T4;
+    vector<vi> bit[2][2];
 
-    Fenwick2DAdd(int _n, int _m)
-        : n(_n), m(_m),
-          T1(n+1, vi(m+1)),
-          T2(n+1, vi(m+1)),
-          T3(n+1, vi(m+1)),
-          T4(n+1, vi(m+1))
-    {}
+    Fenwick2DXOR(int _n, int _m) : n(_n), m(_m) {
+        for (int px = 0; px < 2; ++px)
+            for (int py = 0; py < 2; ++py)
+                bit[px][py].assign(n+2, vi(m+2, 0));
+    }
 
-    void add(vector<vi>& t, int x, int y, int v) {
+    void pointXOR(int x, int y, int v) {
         for (int i = x; i <= n; i += i & -i)
             for (int j = y; j <= m; j += j & -j)
-                t[i][j] += v;
+                bit[x&1][y&1][i][j] ^= v;
     }
 
-    void rangeAdd(int x, int y, int v) {
-        add(T1, x, y, v);
-        add(T2, x, y, v * (y - 1));
-        add(T3, x, y, v * (x - 1));
-        add(T4, x, y, v * (x - 1) * (y - 1));
+    void rangeXOR(int x1, int y1, int x2, int y2, int v) {
+        if (x1 > x2 || y1 > y2) return;
+        auto upd = [&](int x, int y){ if (x > 0 && y > 0) pointXOR(x, y, v); };
+        upd(x1,      y1);
+        upd(x2 + 1,  y1);
+        upd(x1,      y2 + 1);
+        upd(x2 + 1,  y2 + 1);
     }
 
-    void rangeUpdate(int x1, int y1, int x2, int y2, int val) {
-        rangeAdd(x1, y1, val);
-        rangeAdd(x1, y2 + 1, -val);
-        rangeAdd(x2 + 1, y1, -val);
-        rangeAdd(x2 + 1, y2 + 1, val);
-    }
-
-    int prefixSum(int x, int y) const {
-        int s1 = 0, s2 = 0, s3 = 0, s4 = 0;
+    int prefixXOR(int x, int y) {
+        if (x <= 0 || y <= 0) return 0;
+        int res = 0;
+        int px = x & 1, py = y & 1;
         for (int i = x; i > 0; i -= i & -i)
-            for (int j = y; j > 0; j -= j & -j) {
-                s1 += T1[i][j];
-                s2 += T2[i][j];
-                s3 += T3[i][j];
-                s4 += T4[i][j];
-            }
-        return s1 * x * y - s2 * x - s3 * y + s4;
+            for (int j = y; j > 0; j -= j & -j)
+                res ^= bit[px][py][i][j];
+        return res;
     }
 
-    int rangeQuery(int x1, int y1, int x2, int y2) const {
-        return prefixSum(x2, y2)
-             - prefixSum(x1 - 1, y2)
-             - prefixSum(x2, y1 - 1)
-             + prefixSum(x1 - 1, y1 - 1);
+    int rangeQuery(int x1, int y1, int x2, int y2) {
+        int res = 0;
+        res ^= prefixXOR(x2,   y2);
+        res ^= prefixXOR(x1-1, y2);
+        res ^= prefixXOR(x2,   y1-1);
+        res ^= prefixXOR(x1-1, y1-1);
+        return res;
     }
 };
+
