@@ -9,6 +9,7 @@
 #include "../build/Fenwick2dAdd.h.typ"
 #include "../build/Fenwick2dXor.h.typ"
 #include "../build/OrderStatisticTree.h.typ"
+#include "../build/CoordinateCompression.h.typ"
 #include "../build/HashMap.h.typ"
 #include "../build/DSU.h.typ"
 #include "../build/DSURollback.h.typ"
@@ -23,4 +24,3 @@
 #include "../build/BinaryTrie.cpp.typ"
 #include "../build/SQRTD.cpp.typ"
 #include "../build/MOs.cpp.typ"
-

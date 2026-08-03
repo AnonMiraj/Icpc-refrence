@@ -24,6 +24,8 @@
 == Divisibility
 	#include "../build/euclid.h.typ"
 	#include "../build/CRT.h.typ"
+	#include "../build/NumberOfDivisors.h.typ"
+	#include "../build/PerfectSquare.h.typ"
 
 	=== Bézout's identity
 	For #mi(`a \neq`), #mi(`b \neq 0`), then #mi(`d=gcd(a,b)`) is the smallest positive integer for which there are integer solutions to
