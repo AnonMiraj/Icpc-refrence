@@ -29,16 +29,21 @@
   #set heading(numbering: "1.1.1")
 
   // Chapter headings: huge, bold, underlined title with number on next line
-  #show heading.where(level: 1): it => {
-    v(0.6em)
-    context {
-      let num = counter(heading).at(it.location()).first()
-      let num-str = numbering(it.numbering, num)
-      underline(text(size: 18pt, weight: "bold", it.body))
-      text(size: 18pt, weight: "bold")[(#num-str) ]
-    }
-    v(0.4em)
-  }
+	#show heading.where(level: 1): it => {
+		v(0.6em)
+		context {
+			if it.numbering == none {
+				// Unnumbered chapter-style heading (e.g. the outline's "Contents" title)
+				underline(text(size: 18pt, weight: "bold", it.body))
+			} else {
+				let num = counter(heading).at(it.location()).first()
+				let num-str = numbering(it.numbering, num)
+				underline(text(size: 18pt, weight: "bold", it.body))
+				text(size: 18pt, weight: "bold")[(#num-str) ]
+			}
+		}
+		v(0.4em)
+	}
 
   // Section headings: LARGE, bold, with numbering pass-through (matching LaTeX \LARGE ~17pt)
   #show heading.where(level: 2): it => {

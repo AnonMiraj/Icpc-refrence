@@ -12,7 +12,8 @@
   contest-name: " ",
   contest-date: "WELL",
 )[
-  #include "contest/chapter.typ"
+	#outline(depth: 1)
+	#include "contest/chapter.typ"
   #include "math/chapter.typ"
   #include "data-structures/chapter.typ"
   #include "numerical/chapter.typ"
